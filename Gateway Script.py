@@ -5,19 +5,19 @@ import random
 from paho.mqtt import client as mqtt_client
 import time
 from datetime import datetime
-broker = '106.51.79.36'
-dbclient = pymongo.MongoClient("mongodb://exozen:exozen123@106.51.79.36:25713/zengap")
-db = dbclient["zengap"]
-col = db["aditya_birla"]
+broker = 'IP address'
+dbclient = pymongo.MongoClient("mongodb://")
+db = dbclient["DBClient"]
+col = db["Collection name"]
 port = 1883
-topic ='ABFRL'
-mqttuser = 'myuser'
-password = 'mqtt'
+topic ='Topic'
+mqttuser = 'username'
+password = 'Password'
 client_id = f'python-mqtt-{random.randint(0,100)}'
 def connect_mqtt():
     def on_connect(client, userdata, flags, rc):
         if rc == 0:
-            print("Ready to receive data from Gateway "+"\n")
+            print("Ready to receive data "+"\n")
         else:
             print("connection failed, return code %d\n", rc)
     client = mqtt_client.Client(client_id)
